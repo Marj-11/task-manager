@@ -1,0 +1,26 @@
+<div class="container wrapper">
+  <div class="card">
+    <form class="task-form title">
+      <div class="input-field">
+        <label for="task">New task</label>
+        <input [(ngModel)]="newTask" type="text" name="task" placeholder="Task Name " id="task" class="input" />
+      </div>
+
+    </form>
+    <div class="card-action task-form">
+      <h5 id="task-title"></h5>
+      <div class="input-field textarea">
+        <label for="subtasks">Subtasks</label>
+        <textarea [(ngModel)]="progress" type="text" placeholder="Add subtasks to complete here. &#10;Seperate them by commas (,)!" name="filter" id="subtasks" class="input"></textarea>
+      </div>
+    </div>
+    <div class="submit">
+      <button type="btn" value="add task" class="btnAdd" (click)="addTask()">Add Task</button>
+    </div>
+  </div>
+</div>
+
+<div class="tasks wrapper">
+  <tasks-unfinished [tasks]="unfinished"></tasks-unfinished>
+  <tasks-finished [tasks]="finished"></tasks-finished>
+</div>

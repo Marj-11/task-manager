@@ -1,0 +1,19 @@
+<li class="item" *ngIf="task">
+  <h3>
+    {{ task.name }} <strong>{{ currentPercentage }}%</strong>
+  </h3>
+  <ul>
+    <li *ngFor="let subtask of task.progress; let i = index">
+      <input
+        [(ngModel)]="subtask.checked"
+        type="checkbox"
+        name="check"
+        [id]="subtask.uniqueKey"
+      />
+      <label [for]="subtask.uniqueKey">{{
+        subtask.name
+      }}</label>
+    </li>
+  </ul>
+  <button class="delete" (click)="delete()">Delete</button>
+</li>
